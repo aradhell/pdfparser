@@ -264,8 +264,8 @@ class Font extends PDFObject
                     $text .= '(';
                 }
 
-                //$part = pack('H*', $part); fix pack(): Type H: illegal hex digit u
-                $part = pack('H*', str_replace(' ', '', sprintf('%u', CRC32($part))));
+                $part = pack('H*', $part); //fix pack(): Type H: illegal hex digit u
+                //$part = pack('H*', str_replace(' ', '', sprintf('%u', CRC32($part))));
                 $text .= ($add_braces ? preg_replace('/\\\/s', '\\\\\\', $part) : $part);
 
                 if ($add_braces) {
